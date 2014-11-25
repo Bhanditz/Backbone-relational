@@ -60,7 +60,7 @@
 	else {
 		factory( root, root.Backbone, root._ );
 	}
-}( this, function( exports, Backbone, _ ) {
+}( window, function( exports, Backbone, _ ) {
 	"use strict";
 
 	Backbone.Relational = {
