@@ -51,9 +51,11 @@
 		define( [ 'exports', 'backbone', 'underscore' ], factory );
 	}
 	// Next for Node.js or CommonJS.
-	else if ( typeof exports !== 'undefined' ) {
-		factory( exports, require( 'backbone' ), require( 'underscore' ) );
-	}
+	// Disable this because of monorail's external backbone require
+	// Emre on 11/25/2014
+	// else if ( typeof exports !== 'undefined' ) {
+	// 	factory( exports, require( 'backbone' ), require( 'underscore' ) );
+	// }
 	// Finally, as a browser global. Use `root` here as it references `window`.
 	else {
 		factory( root, root.Backbone, root._ );
@@ -1461,7 +1463,7 @@
 								_.each( createdModels, function( model ) {
 									model.trigger( 'destroy', model, model.collection, options );
 								});
-								
+
 								options.error && options.error.apply( models, arguments );
 							},
 							url: setUrl
